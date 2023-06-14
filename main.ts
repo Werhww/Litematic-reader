@@ -44,3 +44,7 @@ class Litematic {
     return blocks
   }
 }
+
+export {
+  Litematic
+}
