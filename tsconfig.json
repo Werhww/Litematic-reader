@@ -9,6 +9,7 @@
         }
     },
     "compilerOptions": {
+        "outDir": "./dist",
         "lib": [
             "ES2020",
             "DOM",
@@ -21,6 +22,7 @@
         "noPropertyAccessFromIndexSignature": true,
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
-        "isolatedModules": true
+        "isolatedModules": true,
+        "moduleResolution": "node"
     },
 }

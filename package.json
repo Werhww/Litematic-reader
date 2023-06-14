@@ -3,5 +3,25 @@
     "@types/node": "^20.2.5",
     "pako": "^2.1.0",
     "prismarine-nbt": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/pako": "^2.0.0"
+  },
+  "name": "@kleppe/litematic-reader",
+  "description": "",
+  "version": "1.0.0",
+  "main": "./dist/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Werhww/Litematic-reader"
   }
 }
