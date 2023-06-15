@@ -5,9 +5,7 @@ import { Litematic } from '@kleppe/litematic-reader'
 
 async function example(file: string) {
   const litematic = new Litematic(file)
-  await litematic.read()
   
-
   /* 
     Gets all block in  litematic file and return with block id and position
   */
@@ -48,8 +46,11 @@ async function example(file: string) {
     ]
   */
 
+	/* The functions above all read individually */
+  await litematic.read() // Only needed for the operations beneath
 
-  /* Can also accass other file data */
+
+  /* Can also access other file data */
   console.log(litematic.litematic?.totalBlocks) // 2
   console.log(litematic.litematic?.palette) /* 
   PaletteManager {
