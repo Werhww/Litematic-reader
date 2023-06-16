@@ -39,6 +39,37 @@ class Litematic {
         }
         return blocks;
     }
+    async getBlock(x, y, z) {
+        await this.fileCheck();
+        const litematic = this.litematic;
+        return litematic.getBlock(x, y, z);
+    }
+    async getBlockPalette() {
+        await this.fileCheck();
+        const litematic = this.litematic;
+        const paletteList = litematic.palette['paletteList'];
+        const fullPaletteList = [];
+        for (let i = 0; i < paletteList.length; i++) {
+            const blockSplit = paletteList[i].split('[');
+            if (fullPaletteList.includes(blockSplit[0]))
+                continue;
+            fullPaletteList.push(blockSplit[0]);
+        }
+        return fullPaletteList;
+    }
+    async getBlockPaletteWithCount() {
+        const allBlocks = await this.getAllBlocks();
+        let paletteWithCount = {};
+        for (let i = 0; i < allBlocks.length; i++) {
+            const blockName = allBlocks[i].block.split('[')[0];
+            let blockCount = paletteWithCount[blockName]?.count || 0;
+            paletteWithCount[blockName] = {
+                block: blockName,
+                count: blockCount + 1
+            };
+        }
+        return paletteWithCount;
+    }
 }
 export { Litematic };
 //# sourceMappingURL=main.js.map
