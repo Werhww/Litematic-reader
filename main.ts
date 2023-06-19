@@ -5,10 +5,10 @@ import { decompress } from "./lib/compression";
 class Litematic {
   public litematic?: SchematicReader 
 
-  constructor(private file: Buffer) {}//  | string
+  constructor(private file: Uint8Array) {}//  | string
   
   async read() {
-    let decompressed = this.file as Buffer
+    let decompressed = await decompress(this.file as Uint8Array)
     /* try {
       const buffer = await readFile(this.file as string)
       decompressed = await decompress(buffer)
