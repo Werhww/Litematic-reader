@@ -1,22 +1,22 @@
-import { readFile } from 'fs/promises'
+/* import { readFile } from 'fs/promises' */
 import { SchematicReader } from "./lib/litematic"
 import { decompress } from "./lib/compression";
 
 class Litematic {
   public litematic?: SchematicReader 
 
-  constructor(private file: Buffer | string) {}
+  constructor(private file: Buffer) {}//  | string
   
   async read() {
-    let decompressed : Uint8Array
-    try {
+    let decompressed = this.file as Buffer
+    /* try {
       const buffer = await readFile(this.file as string)
       decompressed = await decompress(buffer)
     } catch {
       console.log('File import Error, trying to read as buffer')
 
       decompressed = await decompress(this.file as Buffer)
-    }
+    } */
     const litematic = new SchematicReader(decompressed)
     this.litematic = litematic
     return litematic
