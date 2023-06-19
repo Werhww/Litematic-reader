@@ -8,7 +8,6 @@ class Litematic {
   constructor(private file: Uint8Array) {}//  | string
   
   async read() {
-    let decompressed = await decompress(this.file as Uint8Array)
     /* try {
       const buffer = await readFile(this.file as string)
       decompressed = await decompress(buffer)
@@ -17,6 +16,7 @@ class Litematic {
 
       decompressed = await decompress(this.file as Buffer)
     } */
+    let decompressed = await decompress(this.file as Uint8Array)
     const litematic = new SchematicReader(decompressed)
     this.litematic = litematic
     return litematic
