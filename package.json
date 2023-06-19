@@ -9,8 +9,9 @@
   },
   "name": "@kleppe/litematic-reader",
   "description": "",
-  "version": "1.0.3",
-  "main": "./dist/main.js",
+  "version": "1.0.4",
+  "main": "./dist/main",
+  "types": "./dist/main",
   "directories": {
     "lib": "lib"
   },
