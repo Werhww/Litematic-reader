@@ -66,3 +66,24 @@ async function example(file: string) {
 
 example('file.litematic')
 ```
+
+---
+### Vite fix
+
+When used with Vite the `fs/promises` module will create problems. Workaround is to import file yourself and pass through the file buffer instead.
+
+Example:
+```ts
+import { readFile } from 'fs/promises'
+import { Litematic } from '@kleppe/litematic-reader'
+
+async function example(file: string) {
+  const buffer = await readFile(file) // add readFile and pass through the buffer insted
+  /* This workaround will console log:
+    "File import Error, trying to read as buffer"
+  */
+  const litematic = new Litematic(buffer)
+}
+
+example('file.litematic')
+```
