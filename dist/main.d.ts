@@ -2,7 +2,7 @@ import { SchematicReader } from "./lib/litematic";
 declare class Litematic {
     private file;
     litematic?: SchematicReader;
-    constructor(file: Uint8Array);
+    constructor(file: ArrayBuffer);
     read(): Promise<SchematicReader>;
     fileCheck(): Promise<void>;
     getAllBlocks(): Promise<{

@@ -1,20 +1,12 @@
-/* import { readFile } from 'fs/promises' */
 import { SchematicReader } from "./lib/litematic";
 import { decompress } from "./lib/compression";
 class Litematic {
     constructor(file) {
         this.file = file;
-    } //  | string
+    }
     async read() {
-        /* try {
-          const buffer = await readFile(this.file as string)
-          decompressed = await decompress(buffer)
-        } catch {
-          console.log('File import Error, trying to read as buffer')
-    
-          decompressed = await decompress(this.file as Buffer)
-        } */
-        let decompressed = await decompress(this.file);
+        const uint8View = new Uint8Array(this.file);
+        let decompressed = await decompress(uint8View);
         const litematic = new SchematicReader(decompressed);
         this.litematic = litematic;
         return litematic;
