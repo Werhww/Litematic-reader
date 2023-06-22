@@ -19,7 +19,7 @@ class Litematic {
     if (!this.litematic) return 
   }
 
-  async getAllBlocks() {
+  async getAllBlocks() : Promise<{pos: {x: number, y: number, z: number}, block: string}[]> {
     await this.fileCheck()
     const litematic = this.litematic!
     const blocks = []
@@ -43,14 +43,14 @@ class Litematic {
     return blocks
   }
 
-  async getBlock(x: number, y: number, z: number) {
+  async getBlock(x: number, y: number, z: number) : Promise<string> {
     await this.fileCheck()
     const litematic = this.litematic!
 
     return litematic.getBlock(x, y, z)
   }
 
-  async getBlockPalette() {
+  async getBlockPalette() : Promise<string[]>  {
     await this.fileCheck()
     const litematic = this.litematic!
     const paletteList = litematic.palette['paletteList']
@@ -65,7 +65,7 @@ class Litematic {
     return fullPaletteList
   }
 
-  async getBlockPaletteWithCount() {
+  async getBlockPaletteWithCount(): Promise<{[key: string]: {block: string, count: number}}> {
     const allBlocks = await this.getAllBlocks()
 
 
